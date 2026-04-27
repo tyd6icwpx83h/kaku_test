@@ -1,13 +1,16 @@
 {
   "manifest_version": 3,
   "name": "カスタム・サイト翻訳プロ",
-  "version": "1.2",
-  "description": "サイトごとに特定の単語やフレーズを自由に置換します。",
-  "permissions": [],
+  "version": "1.3",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["dictionary.js", "content.js"],
+      "js": [
+        "dict_base.js",    // 1. まず箱を作る
+        "dict_upguard.js", // 2. 中身を入れる（増やしたい分だけここに追加）
+        "dict_common.js",  // 2. 中身を入れる
+        "content.js"       // 3. 最後に実行する
+      ],
       "run_at": "document_end"
     }
   ]
