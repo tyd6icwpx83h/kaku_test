@@ -1,12 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "カスタム単語翻訳くん",
-  "version": "1.1",
-  "description": "単語リストを別ファイルに分離しました。",
+  "name": "カスタム・サイト翻訳プロ",
+  "version": "1.2",
+  "description": "サイトごとに特定の単語やフレーズを自由に置換します。",
+  "permissions": [],
   "content_scripts": [
     {
-      "matches": ["https://www.upguard.com/"],
-      "js": ["dictionary.js", "content.js"]
+      "matches": ["<all_urls>"],
+      "js": ["dictionary.js", "content.js"],
+      "run_at": "document_end"
     }
   ]
 }
